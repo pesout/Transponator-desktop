@@ -1,0 +1,9 @@
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\bin\Debug\Transponator.exe.config
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\bin\Debug\Transponator.exe
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\bin\Debug\Transponator.pdb
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\obj\Debug\Transponator.csprojAssemblyReference.cache
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\obj\Debug\Transponator.Form1.resources
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\obj\Debug\Transponator.Properties.Resources.resources
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\obj\Debug\Transponator.csproj.GenerateResource.cache
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\obj\Debug\Transponator.exe
+C:\Users\c24847\Desktop\semestralka-programovani\Transponator\obj\Debug\Transponator.pdb

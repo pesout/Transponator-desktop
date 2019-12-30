@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,15 +37,13 @@ namespace Transponator
 
         private void button_transpose_Click(object sender, EventArgs e)
         {
-            String[] lines = richTextBox_input.Text.Split('\n');
+            String[] lines = richTextBox_input.Text.Split('\n'); // Vstup z textboxu do pole
             foreach (var line in lines)
             {
-                char[] charsToTrim = { ',', ' ' };
-                string chord = line.Trim(charsToTrim).Trim(); // ???
-                if (chord != "")
-                {
-                    MessageBox.Show("---" + chord + "---");
-                }               
+                string chord = ChordFormatter.formatChord(line);
+                if (chord.Length == 0) continue; // Preskocit prazdne radky
+
+                MessageBox.Show("---" + chord + "---");             
             }
         }
     }

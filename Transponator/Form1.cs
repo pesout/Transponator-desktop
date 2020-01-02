@@ -20,31 +20,46 @@ namespace Transponator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listBox_output.Items.Add("ahoj");
-            listBox_output.Items.Add("vvvv");
-            listBox_output.Items.Add("eeeeeee");
-            listBox_output.Items.Add("xxxx");
+            listBoxOutput.Items.Add("ahoj");
+            listBoxOutput.Items.Add("vvvv");
+            listBoxOutput.Items.Add("eeeeeee");
+            listBoxOutput.Items.Add("xxxx");
         }
 
-        private void listBox_output_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!(listBox_output.SelectedItem is null))
+            if (!(listBoxOutput.SelectedItem is null))
             {
-                string curItem = listBox_output.SelectedItem.ToString();
+                string curItem = listBoxOutput.SelectedItem.ToString();
                 MessageBox.Show(curItem);
             }     
         }
 
-        private void button_transpose_Click(object sender, EventArgs e)
+        private void buttonTranspose_Click(object sender, EventArgs e)
         {
-            String[] lines = richTextBox_input.Text.Split('\n'); // Vstup z textboxu do pole
+            Transpose tr = new Transpose();
+
+            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 1) + "---");
+            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 3) + "---");
+            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 5) + "---");
+            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 7) + "---");
+            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 9) + "---");
+            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 12) + "---");
+            /*
+            String[] lines = richTextBoxInput.Text.Split('\n'); // Vstup z textboxu do pole
+
             foreach (var line in lines)
             {
-                string chord = ChordFormatter.formatChord(line);
+                string chord = ChordFormatter.FormatChord(line);
                 if (chord.Length == 0) continue; // Preskocit prazdne radky
 
                 MessageBox.Show("---" + chord + "---");             
             }
+            */
         }
+
+        // --- --- --- TODO --- --- ---
+        // komentare!!!
+        // selectbox a tlacitka +-
     }
 }

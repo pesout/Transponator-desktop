@@ -17,7 +17,7 @@ namespace Transponator
         /// </summary>
         /// <param name="chord">Vstupni string se vsemi osklivymi znaky</param>
         /// <returns></returns>
-        public static string formatChord(string chord)
+        public static string FormatChord(string chord)
         {
             chord = Regex.Replace(chord.Trim(), "[^A-Za-z0-9#]", ""); // Zachovat pouze pismena a cisla v akordech
 

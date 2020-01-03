@@ -51,8 +51,7 @@ namespace Transponator
 
             if (shift < 0) shift = 12 - (Math.Abs(shift) % 12); // Posun proti smeru hodinovych rucicek
             
-            index = (position + shift) % 12; // Kruh ma 12 pultonu
-            
+            index = (position + shift) % 12; // Kruh ma 12 pultonu          
             string transposed_base = chords_all[index];
 
             return transposed_base + chord_type;  

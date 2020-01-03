@@ -38,7 +38,8 @@
             this.labelShift = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uložitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nahratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ulozitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transponovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oPultonViceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,17 +158,26 @@
             // souborToolStripMenuItem
             // 
             this.souborToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uložitToolStripMenuItem,
+            this.nahratToolStripMenuItem,
+            this.ulozitToolStripMenuItem,
             this.konecToolStripMenuItem});
             this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
             this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.souborToolStripMenuItem.Text = "Soubor";
             // 
-            // uložitToolStripMenuItem
+            // nahratToolStripMenuItem
             // 
-            this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.uložitToolStripMenuItem.Text = "Uložit";
+            this.nahratToolStripMenuItem.Name = "nahratToolStripMenuItem";
+            this.nahratToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nahratToolStripMenuItem.Text = "Nahrát";
+            this.nahratToolStripMenuItem.Click += new System.EventHandler(this.buttonNahrat_Click);
+            // 
+            // ulozitToolStripMenuItem
+            // 
+            this.ulozitToolStripMenuItem.Name = "ulozitToolStripMenuItem";
+            this.ulozitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ulozitToolStripMenuItem.Text = "Uložit";
+            this.ulozitToolStripMenuItem.Click += new System.EventHandler(this.buttonUlozit_Click);
             // 
             // konecToolStripMenuItem
             // 
@@ -334,7 +344,7 @@
         private System.Windows.Forms.Label labelShift;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem souborToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uložitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ulozitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem konecToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAplikaciToolStripMenuItem;
         private System.Windows.Forms.Button buttonUlozit;
@@ -348,6 +358,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonNahrat;
+        private System.Windows.Forms.ToolStripMenuItem nahratToolStripMenuItem;
     }
 }
 

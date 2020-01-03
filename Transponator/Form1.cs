@@ -28,12 +28,17 @@ namespace Transponator
             shift = 0;
         }
 
+        /// <summary>
+        /// Zobrazi posun v labelu a vyplni vystupni listBox
+        /// </summary>
+        /// <param name="shift_difference">O kolik se posouva ve smeru hodinovych rucicek</param>
         private void ShowOutput(int shift_difference)
         {
             shift += shift_difference;
 
-            if (shift < 0) shift = 12 - (Math.Abs(shift) % 12); // Posun proti smeru hodinovych rucicek
-            shift %= 12;
+            shift = (shift < 0)
+                ? 12 - (Math.Abs(shift) % 12) // Posun proti smeru hodinovych rucicek
+                : shift % 12;
 
             Array result = transponator.GetOutput(richTextBoxInput.Text, shift);
 
@@ -120,51 +125,26 @@ namespace Transponator
 
         private void buttonUlozit_Click(object sender, EventArgs e)
         {
-            SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "Soubor aplikace Transponator (*.trsp)|*.trsp";
-
-            if (save.ShowDialog() == DialogResult.OK)
-            {
-                File.WriteAllText(save.FileName, richTextBoxInput.Text);
-                MessageBox.Show("Uložení problěhlo v pořádku", "Úspěch");
-            }
+            SaveLoad.Save(richTextBoxInput.Text);
         }
 
         private void buttonNahrat_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Soubor aplikace Transponator (*.trsp)|*.trsp";
+            string loaded_content = SaveLoad.Load();
 
-            string file_content;
-            string file_path;
-
-            if (open.ShowDialog() == DialogResult.OK)
+            if (loaded_content != "load_error")
             {
-                file_path = open.FileName;
-                var file_stream = open.OpenFile();
-
-                using (StreamReader reader = new StreamReader(file_stream))
-                {
-                    file_content = reader.ReadToEnd();
-                }
-
-                richTextBoxInput.Text = file_content;
+                richTextBoxInput.Text = SaveLoad.Load();
                 ShowOutput(0);
-            }
+            }         
         }
 
         private void webBrowserNakresHmatu_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             if (webBrowserNakresHmatu.DocumentText.Contains("HTTP 404"))
             {
-                webBrowserNakresHmatu.Navigate("");
+                webBrowserNakresHmatu.Navigate(""); // Pokud se nenalezne obrazek, zobrazi se prazdna stranka
             }
         }
-
-
-        // --- --- --- TODO --- --- ---
-        // komentare!!!
-        // save a load do classy
-        // tlacitko ulozit i v menu stripu
     }
 }

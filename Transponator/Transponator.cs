@@ -47,19 +47,21 @@ namespace Transponator
             return output.ToArray();
         }
 
+        /// <summary>
+        /// Vraci URL adresu SVG obrazku hmatu nebo prazdny string 
+        /// </summary>
+        /// <param name="selected">Vybrany radek v listBox vystupu</param>
         public string GetImageUrl (string selected)
         {
             string chord;
             string url;
 
-            chord = selected.Split(null)[4]; // Take transposed chord
+            chord = selected.Split(null)[4]; // Transponovany akord
             chord = chord.Replace("#", "is");
 
             url = "https://akordiky.cz/img/chords/svg/" + chord + "_1.svg";
 
-            return (! url.Contains("Nevalidní"))
-                ? url
-                : "";
+            return (! url.Contains("Nevalidní")) ? url : "";
         }
     }
 }

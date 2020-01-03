@@ -68,22 +68,18 @@ namespace Transponator
             ShowOutput(2);
         }
 
+        private void richTextBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            ShowOutput(0);
+        }
+
         private void listBoxOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!(listBoxOutput.SelectedItem is null))
             {
                 string item = listBoxOutput.SelectedItem.ToString();
-
-                pictureBoxNakresHmatu.ImageLocation =
-                    "http://www.skytarou.cz/akordy_obr.php?akord=F"; // TODO
-
-
+                webBrowserNakresHmatu.Navigate(transponator.GetImageUrl(item));
             }
-        }
-
-        private void richTextBoxInput_TextChanged(object sender, EventArgs e)
-        {
-            ShowOutput(0);
         }
 
         private void konecToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,8 +89,34 @@ namespace Transponator
 
         private void oAplikaciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("© Štěpán Pešout \n \n Online verze: http://transponator.pesout.eu", "O aplikaci");
+            MessageBox.Show(
+                "© Štěpán Pešout \n \n" + 
+                "Online verze: http://transponator.pesout.eu \n" + 
+                "Zdroj schémat hmatů: http://akordiky.cz", 
+                
+                "O aplikaci");
         }
+
+        private void oPultonViceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowOutput(1);
+        }
+
+        private void oDvaPultonyViceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowOutput(2);
+        }
+
+        private void oPultonMeneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowOutput(-1);
+        }
+
+        private void oDvaPultonyMeneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowOutput(-2);
+        }
+
 
         // --- --- --- TODO --- --- ---
         // komentare!!!

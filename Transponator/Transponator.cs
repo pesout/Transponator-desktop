@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,39 @@ namespace Transponator
             }
 
             return output.ToArray();
+        }
+
+        private bool UrlExists(string url)
+        {
+            Uri urlCheck = new Uri(url);
+            System.Net.WebRequest request = System.Net.WebRequest.Create(urlCheck);
+            request.Timeout = 4000;
+
+            WebResponse response;
+            try
+            {
+                response = request.GetResponse();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false; // URL nelze nacist
+            }
+        }
+
+        public string GetImageUrl (string selected)
+        {
+            string chord;
+            string url;
+
+            chord = selected.Split(null)[4]; // Take transposed chord
+            chord = chord.Replace("#", "is");
+
+            url = "https://akordiky.cz/img/chords/svg/" + chord + "_1.svg";
+
+            return (UrlExists(url))
+                ? url
+                : "";
         }
     }
 }

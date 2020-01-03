@@ -40,18 +40,25 @@
             this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uložitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transponovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPultonViceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oDvaPultonyViceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPultonMeneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oDvaPultonyMeneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAplikaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonUlozit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxNakresHmatu = new System.Windows.Forms.PictureBox();
+            this.webBrowserNakresHmatu = new System.Windows.Forms.WebBrowser();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNakresHmatu)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBoxInput
             // 
+            this.richTextBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBoxInput.Location = new System.Drawing.Point(28, 61);
+            this.richTextBoxInput.Location = new System.Drawing.Point(28, 80);
             this.richTextBoxInput.Name = "richTextBoxInput";
             this.richTextBoxInput.Size = new System.Drawing.Size(275, 304);
             this.richTextBoxInput.TabIndex = 2;
@@ -60,19 +67,20 @@
             // 
             // listBoxOutput
             // 
+            this.listBoxOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBoxOutput.FormattingEnabled = true;
             this.listBoxOutput.ItemHeight = 20;
-            this.listBoxOutput.Location = new System.Drawing.Point(500, 61);
+            this.listBoxOutput.Location = new System.Drawing.Point(500, 80);
             this.listBoxOutput.Name = "listBoxOutput";
-            this.listBoxOutput.Size = new System.Drawing.Size(271, 304);
+            this.listBoxOutput.Size = new System.Drawing.Size(271, 300);
             this.listBoxOutput.TabIndex = 5;
             this.listBoxOutput.SelectedIndexChanged += new System.EventHandler(this.listBoxOutput_SelectedIndexChanged);
             // 
             // buttonMinusOne
             // 
             this.buttonMinusOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMinusOne.Location = new System.Drawing.Point(333, 111);
+            this.buttonMinusOne.Location = new System.Drawing.Point(333, 130);
             this.buttonMinusOne.Name = "buttonMinusOne";
             this.buttonMinusOne.Size = new System.Drawing.Size(66, 39);
             this.buttonMinusOne.TabIndex = 6;
@@ -83,7 +91,7 @@
             // buttonPlusOne
             // 
             this.buttonPlusOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonPlusOne.Location = new System.Drawing.Point(405, 111);
+            this.buttonPlusOne.Location = new System.Drawing.Point(405, 130);
             this.buttonPlusOne.Name = "buttonPlusOne";
             this.buttonPlusOne.Size = new System.Drawing.Size(66, 39);
             this.buttonPlusOne.TabIndex = 7;
@@ -94,7 +102,7 @@
             // buttonMinusTwo
             // 
             this.buttonMinusTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMinusTwo.Location = new System.Drawing.Point(333, 156);
+            this.buttonMinusTwo.Location = new System.Drawing.Point(333, 175);
             this.buttonMinusTwo.Name = "buttonMinusTwo";
             this.buttonMinusTwo.Size = new System.Drawing.Size(66, 39);
             this.buttonMinusTwo.TabIndex = 8;
@@ -105,7 +113,7 @@
             // buttonPlusTwo
             // 
             this.buttonPlusTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonPlusTwo.Location = new System.Drawing.Point(405, 156);
+            this.buttonPlusTwo.Location = new System.Drawing.Point(405, 175);
             this.buttonPlusTwo.Name = "buttonPlusTwo";
             this.buttonPlusTwo.Size = new System.Drawing.Size(66, 39);
             this.buttonPlusTwo.TabIndex = 9;
@@ -117,7 +125,7 @@
             // 
             this.labelTranspozice.AutoSize = true;
             this.labelTranspozice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTranspozice.Location = new System.Drawing.Point(329, 77);
+            this.labelTranspozice.Location = new System.Drawing.Point(329, 96);
             this.labelTranspozice.Name = "labelTranspozice";
             this.labelTranspozice.Size = new System.Drawing.Size(99, 20);
             this.labelTranspozice.TabIndex = 10;
@@ -127,7 +135,7 @@
             // 
             this.labelShift.AutoSize = true;
             this.labelShift.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelShift.Location = new System.Drawing.Point(425, 77);
+            this.labelShift.Location = new System.Drawing.Point(425, 96);
             this.labelShift.Name = "labelShift";
             this.labelShift.Size = new System.Drawing.Size(18, 20);
             this.labelShift.TabIndex = 11;
@@ -137,10 +145,11 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.souborToolStripMenuItem,
+            this.transponovatToolStripMenuItem,
             this.oAplikaciToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1340, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -156,15 +165,54 @@
             // uložitToolStripMenuItem
             // 
             this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.uložitToolStripMenuItem.Text = "Uložit";
             // 
             // konecToolStripMenuItem
             // 
             this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
-            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.konecToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.konecToolStripMenuItem.Text = "Konec";
             this.konecToolStripMenuItem.Click += new System.EventHandler(this.konecToolStripMenuItem_Click);
+            // 
+            // transponovatToolStripMenuItem
+            // 
+            this.transponovatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oPultonViceToolStripMenuItem,
+            this.oDvaPultonyViceToolStripMenuItem,
+            this.oPultonMeneToolStripMenuItem,
+            this.oDvaPultonyMeneToolStripMenuItem});
+            this.transponovatToolStripMenuItem.Name = "transponovatToolStripMenuItem";
+            this.transponovatToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.transponovatToolStripMenuItem.Text = "Transponovat";
+            // 
+            // oPultonViceToolStripMenuItem
+            // 
+            this.oPultonViceToolStripMenuItem.Name = "oPultonViceToolStripMenuItem";
+            this.oPultonViceToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.oPultonViceToolStripMenuItem.Text = "O půltón více";
+            this.oPultonViceToolStripMenuItem.Click += new System.EventHandler(this.oPultonViceToolStripMenuItem_Click);
+            // 
+            // oDvaPultonyViceToolStripMenuItem
+            // 
+            this.oDvaPultonyViceToolStripMenuItem.Name = "oDvaPultonyViceToolStripMenuItem";
+            this.oDvaPultonyViceToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.oDvaPultonyViceToolStripMenuItem.Text = "O dva půltóny více";
+            this.oDvaPultonyViceToolStripMenuItem.Click += new System.EventHandler(this.oDvaPultonyViceToolStripMenuItem_Click);
+            // 
+            // oPultonMeneToolStripMenuItem
+            // 
+            this.oPultonMeneToolStripMenuItem.Name = "oPultonMeneToolStripMenuItem";
+            this.oPultonMeneToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.oPultonMeneToolStripMenuItem.Text = "O půltón méně";
+            this.oPultonMeneToolStripMenuItem.Click += new System.EventHandler(this.oPultonMeneToolStripMenuItem_Click);
+            // 
+            // oDvaPultonyMeneToolStripMenuItem
+            // 
+            this.oDvaPultonyMeneToolStripMenuItem.Name = "oDvaPultonyMeneToolStripMenuItem";
+            this.oDvaPultonyMeneToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.oDvaPultonyMeneToolStripMenuItem.Text = "O dva půltóny méně";
+            this.oDvaPultonyMeneToolStripMenuItem.Click += new System.EventHandler(this.oDvaPultonyMeneToolStripMenuItem_Click);
             // 
             // oAplikaciToolStripMenuItem
             // 
@@ -176,7 +224,7 @@
             // buttonUlozit
             // 
             this.buttonUlozit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonUlozit.Location = new System.Drawing.Point(683, 393);
+            this.buttonUlozit.Location = new System.Drawing.Point(683, 421);
             this.buttonUlozit.Name = "buttonUlozit";
             this.buttonUlozit.Size = new System.Drawing.Size(88, 35);
             this.buttonUlozit.TabIndex = 13;
@@ -187,26 +235,56 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(24, 38);
+            this.label1.Location = new System.Drawing.Point(24, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Akordy (každý na samostatný řádek):";
             // 
-            // pictureBoxNakresHmatu
+            // webBrowserNakresHmatu
             // 
-            this.pictureBoxNakresHmatu.Location = new System.Drawing.Point(28, 393);
-            this.pictureBoxNakresHmatu.Name = "pictureBoxNakresHmatu";
-            this.pictureBoxNakresHmatu.Size = new System.Drawing.Size(539, 148);
-            this.pictureBoxNakresHmatu.TabIndex = 15;
-            this.pictureBoxNakresHmatu.TabStop = false;
+            this.webBrowserNakresHmatu.AllowWebBrowserDrop = false;
+            this.webBrowserNakresHmatu.IsWebBrowserContextMenuEnabled = false;
+            this.webBrowserNakresHmatu.Location = new System.Drawing.Point(810, 80);
+            this.webBrowserNakresHmatu.Margin = new System.Windows.Forms.Padding(0);
+            this.webBrowserNakresHmatu.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowserNakresHmatu.Name = "webBrowserNakresHmatu";
+            this.webBrowserNakresHmatu.ScrollBarsEnabled = false;
+            this.webBrowserNakresHmatu.Size = new System.Drawing.Size(501, 376);
+            this.webBrowserNakresHmatu.TabIndex = 16;
+            this.webBrowserNakresHmatu.TabStop = false;
+            this.webBrowserNakresHmatu.Url = new System.Uri("https://akordiky.cz/img/chords/svg/D_1.svg", System.UriKind.Absolute);
+            this.webBrowserNakresHmatu.WebBrowserShortcutsEnabled = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(496, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(174, 20);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Transponované akordy:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(806, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 20);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Schéma hmatu:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 571);
-            this.Controls.Add(this.pictureBoxNakresHmatu);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1340, 496);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.webBrowserNakresHmatu);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonUlozit);
             this.Controls.Add(this.labelShift);
@@ -224,7 +302,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNakresHmatu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,7 +324,14 @@
         private System.Windows.Forms.ToolStripMenuItem oAplikaciToolStripMenuItem;
         private System.Windows.Forms.Button buttonUlozit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBoxNakresHmatu;
+        private System.Windows.Forms.WebBrowser webBrowserNakresHmatu;
+        private System.Windows.Forms.ToolStripMenuItem transponovatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oPultonViceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oDvaPultonyViceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oPultonMeneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oDvaPultonyMeneToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

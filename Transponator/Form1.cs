@@ -13,6 +13,9 @@ namespace Transponator
 {
     public partial class Form1 : Form
     {
+        private Transponator transponator;
+        private int shift;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,46 +23,83 @@ namespace Transponator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listBoxOutput.Items.Add("ahoj");
-            listBoxOutput.Items.Add("vvvv");
-            listBoxOutput.Items.Add("eeeeeee");
-            listBoxOutput.Items.Add("xxxx");
+            transponator = new Transponator();
+            shift = 0;
+        }
+
+        private void ShowOutput(int shift_difference)
+        {
+            shift += shift_difference;
+
+            if (shift < 0) shift = 12 - (Math.Abs(shift) % 12); // Posun proti smeru hodinovych rucicek
+            shift %= 12;
+
+            Array result = transponator.GetOutput(richTextBoxInput.Text, shift);
+
+            labelShift.Text = (shift != 0)
+                ? shift.ToString() + " (-" + (12 - shift).ToString() + ")"
+                : "0";
+
+            listBoxOutput.Items.Clear();
+
+            foreach (var item in result)
+            {
+                listBoxOutput.Items.Add(item);
+            }
+        }
+
+        private void buttonMinusOne_Click(object sender, EventArgs e)
+        {
+            ShowOutput(-1);
+        }
+
+        private void buttonPlusOne_Click(object sender, EventArgs e)
+        {
+            ShowOutput(1);
+        }
+
+        private void buttonMinusTwo_Click(object sender, EventArgs e)
+        {
+            ShowOutput(-2);
+        }
+
+        private void buttonPlusTwo_Click(object sender, EventArgs e)
+        {
+            ShowOutput(2);
         }
 
         private void listBoxOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!(listBoxOutput.SelectedItem is null))
             {
-                string curItem = listBoxOutput.SelectedItem.ToString();
-                MessageBox.Show(curItem);
-            }     
+                string item = listBoxOutput.SelectedItem.ToString();
+
+                pictureBoxNakresHmatu.ImageLocation =
+                    "http://www.skytarou.cz/akordy_obr.php?akord=F"; // TODO
+
+
+            }
         }
 
-        private void buttonTranspose_Click(object sender, EventArgs e)
+        private void richTextBoxInput_TextChanged(object sender, EventArgs e)
         {
-            Transpose tr = new Transpose();
+            ShowOutput(0);
+        }
 
-            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 1) + "---");
-            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 3) + "---");
-            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 5) + "---");
-            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 7) + "---");
-            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 9) + "---");
-            MessageBox.Show("---" + tr.TransposeChord("F#mi7", 12) + "---");
-            /*
-            String[] lines = richTextBoxInput.Text.Split('\n'); // Vstup z textboxu do pole
+        private void konecToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-            foreach (var line in lines)
-            {
-                string chord = ChordFormatter.FormatChord(line);
-                if (chord.Length == 0) continue; // Preskocit prazdne radky
-
-                MessageBox.Show("---" + chord + "---");             
-            }
-            */
+        private void oAplikaciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("© Štěpán Pešout \n \n Online verze: http://transponator.pesout.eu", "O aplikaci");
         }
 
         // --- --- --- TODO --- --- ---
         // komentare!!!
-        // selectbox a tlacitka +-
+        // tlacitko ulozit i v menu stripu
+        //obrazky akordu skytarou.cz
+        // ulozit do souboru https://docs.microsoft.com/cs-cz/dotnet/api/system.windows.forms.savefiledialog?view=netframework-4.8
     }
 }

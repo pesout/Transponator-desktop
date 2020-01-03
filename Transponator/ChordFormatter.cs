@@ -13,15 +13,14 @@ namespace Transponator
     class ChordFormatter
     {
         /// <summary>
-        /// Vraci formatovany akord bez osklivych znaku, prvni pismeno velke, ostatni mala
+        /// Vraci formatovany akord bez specialnich znaku, prvni pismeno velke, ostatni mala
         /// </summary>
-        /// <param name="chord">Vstupni string se vsemi osklivymi znaky</param>
-        /// <returns></returns>
+        /// <param name="chord">Vstupni string se vsemi specialnimi znaky</param>
         public static string FormatChord(string chord)
         {
             chord = Regex.Replace(chord.Trim(), "[^A-Za-z0-9#]", ""); // Zachovat pouze pismena a cisla v akordech
 
-            if (chord.Length == 0) return ""; // Nejsou zadne validni znaky
+            if (chord.Length == 0) return "";
 
             chord = (chord.Length > 0) // Prvni pismeno velke, ostatni mala
                 ? char.ToUpper(chord[0]).ToString() + chord.Substring(1).ToLower()

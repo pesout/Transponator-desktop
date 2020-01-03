@@ -47,24 +47,6 @@ namespace Transponator
             return output.ToArray();
         }
 
-        private bool UrlExists(string url)
-        {
-            Uri urlCheck = new Uri(url);
-            System.Net.WebRequest request = System.Net.WebRequest.Create(urlCheck);
-            request.Timeout = 4000;
-
-            WebResponse response;
-            try
-            {
-                response = request.GetResponse();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false; // URL nelze nacist
-            }
-        }
-
         public string GetImageUrl (string selected)
         {
             string chord;
@@ -75,7 +57,7 @@ namespace Transponator
 
             url = "https://akordiky.cz/img/chords/svg/" + chord + "_1.svg";
 
-            return (UrlExists(url))
+            return (! url.Contains("Nevalidní"))
                 ? url
                 : "";
         }

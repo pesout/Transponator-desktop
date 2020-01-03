@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -117,11 +118,53 @@ namespace Transponator
             ShowOutput(-2);
         }
 
+        private void buttonUlozit_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Soubor aplikace Transponator (*.trsp)|*.trsp";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(save.FileName, richTextBoxInput.Text);
+                MessageBox.Show("Uložení problěhlo v pořádku", "Úspěch");
+            }
+        }
+
+        private void buttonNahrat_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Soubor aplikace Transponator (*.trsp)|*.trsp";
+
+            string file_content;
+            string file_path;
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                file_path = open.FileName;
+                var file_stream = open.OpenFile();
+
+                using (StreamReader reader = new StreamReader(file_stream))
+                {
+                    file_content = reader.ReadToEnd();
+                }
+
+                richTextBoxInput.Text = file_content;
+                ShowOutput(0);
+            }
+        }
+
+        private void webBrowserNakresHmatu_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            if (webBrowserNakresHmatu.DocumentText.Contains("HTTP 404"))
+            {
+                webBrowserNakresHmatu.Navigate("");
+            }
+        }
+
 
         // --- --- --- TODO --- --- ---
         // komentare!!!
+        // save a load do classy
         // tlacitko ulozit i v menu stripu
-        //obrazky akordu skytarou.cz
-        // ulozit do souboru https://docs.microsoft.com/cs-cz/dotnet/api/system.windows.forms.savefiledialog?view=netframework-4.8
     }
 }

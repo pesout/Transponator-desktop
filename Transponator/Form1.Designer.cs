@@ -51,6 +51,7 @@
             this.webBrowserNakresHmatu = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.buttonNahrat = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,9 +59,9 @@
             // 
             this.richTextBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBoxInput.Location = new System.Drawing.Point(28, 80);
+            this.richTextBoxInput.Location = new System.Drawing.Point(18, 80);
             this.richTextBoxInput.Name = "richTextBoxInput";
-            this.richTextBoxInput.Size = new System.Drawing.Size(275, 304);
+            this.richTextBoxInput.Size = new System.Drawing.Size(275, 320);
             this.richTextBoxInput.TabIndex = 2;
             this.richTextBoxInput.Text = "";
             this.richTextBoxInput.TextChanged += new System.EventHandler(this.richTextBoxInput_TextChanged);
@@ -73,7 +74,7 @@
             this.listBoxOutput.ItemHeight = 20;
             this.listBoxOutput.Location = new System.Drawing.Point(500, 80);
             this.listBoxOutput.Name = "listBoxOutput";
-            this.listBoxOutput.Size = new System.Drawing.Size(271, 300);
+            this.listBoxOutput.Size = new System.Drawing.Size(271, 320);
             this.listBoxOutput.TabIndex = 5;
             this.listBoxOutput.SelectedIndexChanged += new System.EventHandler(this.listBoxOutput_SelectedIndexChanged);
             // 
@@ -165,13 +166,13 @@
             // uložitToolStripMenuItem
             // 
             this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uložitToolStripMenuItem.Text = "Uložit";
             // 
             // konecToolStripMenuItem
             // 
             this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
-            this.konecToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.konecToolStripMenuItem.Text = "Konec";
             this.konecToolStripMenuItem.Click += new System.EventHandler(this.konecToolStripMenuItem_Click);
             // 
@@ -230,12 +231,13 @@
             this.buttonUlozit.TabIndex = 13;
             this.buttonUlozit.Text = "Uložit";
             this.buttonUlozit.UseVisualStyleBackColor = true;
+            this.buttonUlozit.Click += new System.EventHandler(this.buttonUlozit_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(24, 47);
+            this.label1.Location = new System.Drawing.Point(14, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 20);
             this.label1.TabIndex = 14;
@@ -253,8 +255,9 @@
             this.webBrowserNakresHmatu.Size = new System.Drawing.Size(501, 376);
             this.webBrowserNakresHmatu.TabIndex = 16;
             this.webBrowserNakresHmatu.TabStop = false;
-            this.webBrowserNakresHmatu.Url = new System.Uri("https://akordiky.cz/img/chords/svg/D_1.svg", System.UriKind.Absolute);
+            this.webBrowserNakresHmatu.Url = new System.Uri("", System.UriKind.Relative);
             this.webBrowserNakresHmatu.WebBrowserShortcutsEnabled = false;
+            this.webBrowserNakresHmatu.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserNakresHmatu_DocumentCompleted);
             // 
             // label2
             // 
@@ -276,12 +279,24 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Schéma hmatu:";
             // 
+            // buttonNahrat
+            // 
+            this.buttonNahrat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonNahrat.Location = new System.Drawing.Point(582, 421);
+            this.buttonNahrat.Name = "buttonNahrat";
+            this.buttonNahrat.Size = new System.Drawing.Size(88, 35);
+            this.buttonNahrat.TabIndex = 19;
+            this.buttonNahrat.Text = "Nahrát";
+            this.buttonNahrat.UseVisualStyleBackColor = true;
+            this.buttonNahrat.Click += new System.EventHandler(this.buttonNahrat_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1340, 496);
+            this.Controls.Add(this.buttonNahrat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.webBrowserNakresHmatu);
@@ -332,6 +347,7 @@
         private System.Windows.Forms.ToolStripMenuItem oDvaPultonyMeneToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonNahrat;
     }
 }
 
